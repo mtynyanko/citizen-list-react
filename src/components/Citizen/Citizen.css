@@ -1,0 +1,18 @@
+.tooltip {
+  position: absolute;
+  background-color: #000001;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  max-width: 200px;
+  z-index: 1000;
+  top: 20px;
+  left: 0;
+}
+
+span:hover + .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
