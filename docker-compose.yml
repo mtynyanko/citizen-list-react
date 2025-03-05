@@ -1,0 +1,23 @@
+services:
+  frontend:
+    build:
+      context: ./
+    ports:
+      - "5173:5173"
+    depends_on:
+      - citizens
+      - cities
+
+  citizens:
+    build:
+      context: ./
+    command: npx json-server ./citizens.json --port 3001
+    ports:
+      - "3001:3001"
+
+  cities:
+    build:
+      context: ./
+    command: npx json-server ./cities.json --port 3000
+    ports:
+      - "3000:3000"
