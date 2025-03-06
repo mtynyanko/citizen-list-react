@@ -16,10 +16,10 @@ const Citizen = ({ name, data, space }: CitizenProps) => {
     setTooltip({ x: event.clientX, y: event.clientY });
   };
   const handleMouseLeave = () => {
+    console.log(data)
     setShowTooltip(false);
     setTooltip({x:0, y:0})
   }
-
 
   return (<>
     <span 
@@ -45,4 +45,4 @@ const Citizen = ({ name, data, space }: CitizenProps) => {
 
   </>)
 }
-export default Citizen
+export default Citizen;

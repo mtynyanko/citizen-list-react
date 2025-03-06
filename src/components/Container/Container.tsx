@@ -24,8 +24,6 @@ const Container = () => {
     getGroupedCitizens(hierarchy)
     .then(data => {
       setGroups(data)
-      console.log('данные получил')
-      console.log(data)
     })
     .catch(error => {
       console.log(error)
@@ -33,6 +31,8 @@ const Container = () => {
     getCities()
     .then(response => {
       setCities(response.data)
+      console.log('get запрос')
+      console.log(response.data)
     })
     .catch(error => {
       console.log(error)
@@ -48,9 +48,6 @@ const Container = () => {
   };
   
   const renderGroups = (groups: IGroup[], space: number) => {
-    console.log('начало отрисовки');
-    console.log(hierarchy)
-    console.log(groups);
     return groups.map((item, index) => {
       if (isGroup(item)) {
         return (
@@ -61,12 +58,14 @@ const Container = () => {
         );
       } else {
         const citizen = item as ICitizen;
+        console.log('sdfsdfdsf');
+        console.log(citizen)
         return (
           <Citizen 
             key={index}
             name={citizen.name}
             space={space}
-            data={cities.find(city => city.id === citizen.city_id) || null}
+            data={cities.find(city => city.id == citizen.city_id) || null}
           />
         );
       }
@@ -76,7 +75,7 @@ const Container = () => {
   return (<>
     <div className="hierarchy-controls">
       {hierarchyOptions.map(({ label, value }) => (
-        <label key={value}>
+        <label key={value} className="checkbox-label">
         <input
           type="checkbox"
           checked={hierarchy.includes(value)}
