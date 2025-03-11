@@ -31,8 +31,7 @@ const Container = () => {
     getCities()
     .then(response => {
       setCities(response.data)
-      console.log('get запрос')
-      console.log(response.data)
+
     })
     .catch(error => {
       console.log(error)
@@ -58,14 +57,12 @@ const Container = () => {
         );
       } else {
         const citizen = item as ICitizen;
-        console.log('sdfsdfdsf');
-        console.log(citizen)
         return (
           <Citizen 
             key={index}
             name={citizen.name}
             space={space}
-            data={cities.find(city => city.id == citizen.city_id) || null}
+            data={cities.find(city => city.id == citizen.cityId) || null}
           />
         );
       }

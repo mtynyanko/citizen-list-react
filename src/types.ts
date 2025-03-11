@@ -7,7 +7,7 @@ export interface IGroup {
 export interface ICitizen {
   id: number;
   name: string;
-  city_id: number;
+  cityId: number;
   groups: { type: enumHierarchy; name: string}[];
 }
 

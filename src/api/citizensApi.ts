@@ -36,7 +36,7 @@ export const getGroupedCitizens = async (hierarchy: enumHierarchy[]) => {
 
     currentLevel.push({
       id: citizen.id,
-      city_id: citizen.city_id,
+      cityId: citizen.cityId,
       name: citizen.name,
       groups: citizen.groups,
     } as ICitizen);
